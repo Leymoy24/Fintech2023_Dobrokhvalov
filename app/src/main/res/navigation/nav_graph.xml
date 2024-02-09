@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/popularFragment">
+
+    <fragment
+        android:id="@+id/popularFragment"
+        android:name="com.example.movie_poster.presentation.PopularFragment"
+        android:label="fragment_popular"
+        tools:layout="@layout/fragment_popular">
+        <action
+            android:id="@+id/action_popularFragment_to_favouritesFragment"
+            app:destination="@id/favouritesFragment" />
+        <action
+            android:id="@+id/action_popularFragment_to_filmFragment"
+            app:destination="@id/filmFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favouritesFragment"
+        android:name="com.example.movie_poster.presentation.FavouritesFragment"
+        android:label="fragment_favourites"
+        tools:layout="@layout/fragment_favourites">
+        <action
+            android:id="@+id/action_favouritesFragment_to_popularFragment"
+            app:destination="@id/popularFragment" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_filmFragment"
+            app:destination="@id/filmFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/filmFragment"
+        android:name="com.example.movie_poster.presentation.FilmFragment"
+        android:label="fragment_film"
+        tools:layout="@layout/fragment_film" />
+
+</navigation>
