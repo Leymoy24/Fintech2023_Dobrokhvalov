@@ -26,6 +26,15 @@ class PopularFragment : Fragment() {
         Film(0, R.drawable.avatar,"Изгой-один: Звёздные войны", "Фантастика (2016)", false),
         Film(1, R.drawable.nutcracker,"Щелкунчик", "Фэнтези (2018)", false),
         Film(2, R.drawable.black_adam,"Чёрный Адам", "Боевик (2022)", false),
+        Film(2, R.drawable.black_adam,"Чёрный Адам", "Боевик (2022)", false),
+        Film(2, R.drawable.black_adam,"Чёрный Адам", "Боевик (2022)", false),
+        Film(2, R.drawable.black_adam,"Чёрный Адам", "Боевик (2022)", false),
+        Film(2, R.drawable.black_adam,"Чёрный Адам", "Боевик (2022)", false),
+        Film(2, R.drawable.black_adam,"Чёрный Адам", "Боевик (2022)", false),
+        Film(2, R.drawable.black_adam,"Чёрный Адам", "Боевик (2022)", false),
+        Film(2, R.drawable.black_adam,"Чёрный Адам", "Боевик (2022)", false),
+        Film(2, R.drawable.black_adam,"Чёрный Адам", "Боевик (2022)", false),
+        Film(2, R.drawable.black_adam,"Чёрный Адам", "Боевик (2022)", false),
     )
 
     override fun onCreateView(
