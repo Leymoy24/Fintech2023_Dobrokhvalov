@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="20dp"
     android:layout_margin="15dp"
+    app:cardElevation="20dp"
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -35,7 +36,7 @@
             tools:ignore="MissingConstraints">
 
             <TextView
-                android:id="@+id/textViewNameOfFilm"
+                android:id="@+id/textViewTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Изгой-один: Звёздные войны"
@@ -44,7 +45,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textViewGenre"
+                android:id="@+id/textViewDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"

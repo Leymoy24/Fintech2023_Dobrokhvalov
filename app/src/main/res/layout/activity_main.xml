@@ -55,7 +55,7 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/button_favourite"
+            android:id="@+id/button_favourites"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -35,6 +35,12 @@
         android:id="@+id/filmFragment"
         android:name="com.example.movie_poster.presentation.FilmFragment"
         android:label="fragment_film"
-        tools:layout="@layout/fragment_film" />
+        tools:layout="@layout/fragment_film" >
+        <argument
+            android:name="currentFilm"
+            android:defaultValue="@null"
+            app:argType="com.example.movie_poster.data.database.Film"
+            app:nullable="true" />
+    </fragment>
 
 </navigation>

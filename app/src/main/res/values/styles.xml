@@ -4,4 +4,8 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">25sp</item>
     </style>
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:queryBackground">@null</item>
+    </style>
 </resources>
