@@ -35,9 +35,9 @@ class FilmFragment : Fragment() {
         val bottomNavigationLayout = activity?.findViewById<LinearLayout>(R.id.bottom_navigation)
         bottomNavigationLayout?.visibility = View.GONE
 
-        val layoutParams = requireView().layoutParams
-        layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
-        layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
+        val layoutParams = requireView().layoutParams as ViewGroup.MarginLayoutParams
+        layoutParams.topMargin = 0 // Установка отступа сверху в 0
+        layoutParams.bottomMargin = 0 // Установка отступа снизу в 0
         requireView().layoutParams = layoutParams
 
         if (args.currentFilm != null) {

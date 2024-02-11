@@ -13,5 +13,7 @@ buildscript {
     dependencies {
         val nav_version = "2.7.7"
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+        classpath("com.google.gms:google-services:4.4.1")
+        classpath(kotlin("gradle-plugin", version = "1.9.10"))
     }
 }

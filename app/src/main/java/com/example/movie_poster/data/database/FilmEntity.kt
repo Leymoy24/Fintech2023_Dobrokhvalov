@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Film(
+data class FilmEntity(
     val id: Int = 0,
     val poster: Int,
     val title: String,

@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="78dp"
         app:navGraph="@navigation/nav_graph" />
 
     <LinearLayout
@@ -45,10 +46,9 @@
         <Button
             android:id="@+id/button_popular"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:backgroundTint="@color/light_blue"
             android:text="@string/popular"
@@ -58,10 +58,9 @@
         <Button
             android:id="@+id/button_favourites"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
             android:text="@string/favourites"

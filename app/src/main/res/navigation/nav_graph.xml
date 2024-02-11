@@ -39,7 +39,7 @@
         <argument
             android:name="currentFilm"
             android:defaultValue="@null"
-            app:argType="com.example.movie_poster.data.database.Film"
+            app:argType="com.example.movie_poster.data.database.FilmEntity"
             app:nullable="true" />
     </fragment>
 
