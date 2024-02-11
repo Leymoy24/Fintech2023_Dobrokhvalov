@@ -41,6 +41,12 @@
             android:defaultValue="@null"
             app:argType="com.example.movie_poster.data.database.FilmEntity"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_filmFragment_to_popularFragment"
+            app:destination="@id/popularFragment" />
+        <action
+            android:id="@+id/action_filmFragment_to_favouritesFragment"
+            app:destination="@id/favouritesFragment" />
     </fragment>
 
 </navigation>

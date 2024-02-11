@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.movie_poster.R
 import com.example.movie_poster.databinding.FragmentFilmBinding
@@ -16,6 +18,7 @@ class FilmFragment : Fragment() {
     private var _binding: FragmentFilmBinding? = null
     private val binding get() = _binding!!
     private val args by navArgs<FilmFragmentArgs>()
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,21 +31,15 @@ class FilmFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        val appBarLayout = activity?.findViewById<com.google.android.material.appbar.AppBarLayout>(R.id.appBarLayout)
-        appBarLayout?.visibility = View.GONE
-
-        val bottomNavigationLayout = activity?.findViewById<LinearLayout>(R.id.bottom_navigation)
-        bottomNavigationLayout?.visibility = View.GONE
-
-        val layoutParams = requireView().layoutParams as ViewGroup.MarginLayoutParams
-        layoutParams.topMargin = 0 // Установка отступа сверху в 0
-        layoutParams.bottomMargin = 0 // Установка отступа снизу в 0
-        requireView().layoutParams = layoutParams
+        navController = findNavController()
 
         if (args.currentFilm != null) {
             binding.textViewFilmTitle.text = args.currentFilm!!.title
             binding.textViewFilmGenres.text = args.currentFilm!!.title
+        }
+
+        binding.imageButtonBack.setOnClickListener {
+            navController.navigate(R.id.action_filmFragment_to_popularFragment)
         }
 
     }

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <dimen name="menu_icon_size">24dp</dimen>
+    <dimen name="toolbar_height">?attr/actionBarSize</dimen>
+    <dimen name="bottom_navigation_height">78dp</dimen>
 </resources>
