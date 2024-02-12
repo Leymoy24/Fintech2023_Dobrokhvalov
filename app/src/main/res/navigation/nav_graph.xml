@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/popularFragment"
-        android:name="com.example.movie_poster.presentation.PopularFragment"
+        android:name="com.example.movie_poster.presentation.fragments.PopularFragment"
         android:label="fragment_popular"
         tools:layout="@layout/fragment_popular">
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/favouritesFragment"
-        android:name="com.example.movie_poster.presentation.FavouritesFragment"
+        android:name="com.example.movie_poster.presentation.fragments.FavouritesFragment"
         android:label="fragment_favourites"
         tools:layout="@layout/fragment_favourites">
         <action
@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/filmFragment"
-        android:name="com.example.movie_poster.presentation.FilmFragment"
+        android:name="com.example.movie_poster.presentation.fragments.FilmFragment"
         android:label="fragment_film"
         tools:layout="@layout/fragment_film" >
         <argument
