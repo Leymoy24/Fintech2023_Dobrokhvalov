@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.movie_poster.utils.ItemDiffUtil
 import com.example.movie_poster.R
 import com.example.movie_poster.data.database.FilmEntity
+import com.example.movie_poster.presentation.fragments.FavouritesFragmentDirections
 import com.example.movie_poster.presentation.fragments.PopularFragmentDirections
 import com.squareup.picasso.Picasso
 
@@ -41,8 +42,15 @@ class FilmAdapter : ListAdapter<FilmEntity, FilmAdapter.FilmViewHolder>(ItemDiff
         }
 
         holder.itemView.setOnClickListener {
-            val action = PopularFragmentDirections.actionPopularFragmentToFilmFragment(currentFilm)
-            holder.itemView.findNavController().navigate(action)
+            if (holder.itemView.findNavController().currentDestination?.id == R.id.popularFragment) {
+                val action =
+                    PopularFragmentDirections.actionPopularFragmentToFilmFragment(currentFilm)
+                holder.itemView.findNavController().navigate(action)
+            } else {
+                val action =
+                    FavouritesFragmentDirections.actionFavouritesFragmentToFilmFragment(currentFilm)
+                holder.itemView.findNavController().navigate(action)
+            }
         }
 
         holder.itemView.setOnLongClickListener {

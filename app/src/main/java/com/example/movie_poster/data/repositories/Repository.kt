@@ -30,4 +30,14 @@ class Repository(private val filmsDao: FilmsDao) {
     suspend fun updateFilm(film: FilmEntity) {
         filmsDao.updateFilm(film)
     }
+
+    fun getFavouriteDataList(): MutableList<FilmEntity> {
+        val favouriteFilms = mutableListOf<FilmEntity>()
+        for(film in filmsDao.getAllFilms()){
+            if(film.isFavourite == true){
+                favouriteFilms.add(film)
+            }
+        }
+        return favouriteFilms
+    }
 }

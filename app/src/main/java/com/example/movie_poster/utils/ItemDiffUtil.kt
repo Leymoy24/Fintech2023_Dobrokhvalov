@@ -6,7 +6,7 @@ import com.example.movie_poster.data.database.FilmEntity
 
 class ItemDiffUtil : DiffUtil.ItemCallback<FilmEntity>() {
     override fun areItemsTheSame(oldItem: FilmEntity, newItem: FilmEntity): Boolean {
-        return oldItem == newItem
+        return oldItem.id == newItem.id
     }
 
     @SuppressLint("DiffUtilEquals")

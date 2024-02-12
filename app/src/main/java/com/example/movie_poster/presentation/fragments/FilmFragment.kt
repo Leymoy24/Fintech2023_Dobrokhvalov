@@ -1,5 +1,6 @@
 package com.example.movie_poster.presentation.fragments
 
+import android.content.Context
 import android.graphics.Typeface
 import android.os.Bundle
 import android.text.Spannable
@@ -9,11 +10,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.movie_poster.R
 import com.example.movie_poster.databinding.FragmentFilmBinding
+import com.example.movie_poster.presentation.MainActivity
 import com.squareup.picasso.Picasso
 
 
@@ -23,6 +26,12 @@ class FilmFragment : Fragment() {
     private val binding get() = _binding!!
     private val args by navArgs<FilmFragmentArgs>()
     private lateinit var navController: NavController
+    private lateinit var mainActivity: MainActivity
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mainActivity = context as MainActivity
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,9 +55,24 @@ class FilmFragment : Fragment() {
             val spannableCountries = SpannableString("Страны: ${args.currentFilm!!.country}")
             val spannableYear = SpannableString("Год: ${args.currentFilm!!.year}")
 
-            spannableGenres.setSpan(StyleSpan(Typeface.BOLD), 0, 7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-            spannableCountries.setSpan(StyleSpan(Typeface.BOLD), 0, 7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-            spannableYear.setSpan(StyleSpan(Typeface.BOLD), 0, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            spannableGenres.setSpan(
+                StyleSpan(Typeface.BOLD),
+                0,
+                7,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            spannableCountries.setSpan(
+                StyleSpan(Typeface.BOLD),
+                0,
+                7,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            spannableYear.setSpan(
+                StyleSpan(Typeface.BOLD),
+                0,
+                4,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
 
             binding.textViewFilmGenres.text = spannableGenres
             binding.textViewFilmCountries.text = spannableCountries
@@ -56,7 +80,9 @@ class FilmFragment : Fragment() {
         }
 
         binding.imageButtonBack.setOnClickListener {
-            navController.navigate(R.id.action_filmFragment_to_popularFragment)
+            if (navController.currentDestination?.id == R.id.filmFragment) {
+                navController.navigateUp()
+            }
         }
 
     }

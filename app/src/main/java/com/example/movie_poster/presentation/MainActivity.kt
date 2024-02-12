@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         window.statusBarColor = Color.TRANSPARENT
 
-        // Удалить margin
         val marginLayoutParams =
             binding.fragmentContainerView.layoutParams as ViewGroup.MarginLayoutParams
         marginLayoutParams.setMargins(0, 0, 0, 0)
@@ -68,7 +67,6 @@ class MainActivity : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         window.statusBarColor = Color.WHITE
 
-        // Восстановить предыдущие margin
         val marginLayoutParams =
             binding.fragmentContainerView.layoutParams as ViewGroup.MarginLayoutParams
         marginLayoutParams.setMargins(

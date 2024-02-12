@@ -35,7 +35,7 @@ class PopularFragment : Fragment() {
         val repository = application.repository
         viewModel = ViewModelProvider(
             this,
-            FilmViewModel.PopularViewModelFactory(application, repository)
+            FilmViewModel.ViewModelFactory(application, repository)
         )[FilmViewModel::class.java]
 
         _binding = FragmentPopularBinding.inflate(inflater, container, false)
@@ -60,10 +60,6 @@ class PopularFragment : Fragment() {
 
         recyclerViewFilms.layoutManager = LinearLayoutManager(requireContext())
         recyclerViewFilms.adapter = adapter
-
-        viewModel.getNewDataList().observe(viewLifecycleOwner) { dataList ->
-            adapter.submitList(dataList)
-        }
 
         viewModel.getNewDataList().observe(viewLifecycleOwner) { dataList ->
             adapter.submitList(dataList)

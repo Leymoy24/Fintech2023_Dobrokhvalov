@@ -15,6 +15,7 @@ class FilmViewModel(application: Application, private val repository: Repository
     AndroidViewModel(application) {
 
     private val mutableFilmsList = MutableLiveData<MutableList<FilmEntity>>()
+    private val favouriteFilmList = MutableLiveData<MutableList<FilmEntity>>()
 
     fun getListOfPopularFilms() = viewModelScope.launch {
         val filmItems = repository.getListOfPopularFilms()
@@ -34,7 +35,17 @@ class FilmViewModel(application: Application, private val repository: Repository
         return mutableFilmsList
     }
 
-    class PopularViewModelFactory(
+    fun getFavouriteDataList(): LiveData<MutableList<FilmEntity>> {
+        val filmItems = repository.getFavouriteDataList()
+        updateFavouriteDataList(filmItems)
+        return favouriteFilmList
+    }
+
+    private fun updateFavouriteDataList(filmList: MutableList<FilmEntity>) = viewModelScope.launch {
+        favouriteFilmList.value = filmList
+    }
+
+    class ViewModelFactory(
         private val application: Application,
         private val repository: Repository
     ) : ViewModelProvider.Factory {

@@ -35,7 +35,7 @@ class FavouritesFragment : Fragment() {
         val repository = application.repository
         viewModel = ViewModelProvider(
             this,
-            FilmViewModel.PopularViewModelFactory(application, repository)
+            FilmViewModel.ViewModelFactory(application, repository)
         )[FilmViewModel::class.java]
 
         _binding = FragmentFavouritesBinding.inflate(inflater, container, false)
@@ -48,8 +48,6 @@ class FavouritesFragment : Fragment() {
         val progressBar = view.findViewById<ProgressBar>(R.id.progressBarFavourite)
         progressBar.visibility = View.VISIBLE
 
-        viewModel.getListOfPopularFilms()
-
         navController = findNavController()
 
         val topAppBar = activity?.findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.topAppBar)
@@ -60,12 +58,9 @@ class FavouritesFragment : Fragment() {
 
         recyclerViewFilms.layoutManager = LinearLayoutManager(requireContext())
         recyclerViewFilms.adapter = adapter
+        recyclerViewFilms.setHasFixedSize(true)
 
-        viewModel.getNewDataList().observe(viewLifecycleOwner) { dataList ->
-            adapter.submitList(dataList)
-        }
-
-        viewModel.getNewDataList().observe(viewLifecycleOwner) { dataList ->
+        viewModel.getFavouriteDataList().observe(viewLifecycleOwner) { dataList ->
             adapter.submitList(dataList)
             progressBar.visibility = View.INVISIBLE
         }
@@ -75,7 +70,10 @@ class FavouritesFragment : Fragment() {
                 val film = adapter.currentList[position]
                 film.isFavourite = film.isFavourite != true
                 viewModel.updateFilm(film)
-                adapter.notifyItemChanged(position)
+
+                viewModel.getFavouriteDataList().observe(viewLifecycleOwner) { dataList ->
+                    adapter.submitList(dataList)
+                }
             }
         })
 
